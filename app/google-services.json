@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525681473937",
+    "project_id": "batrai-health",
+    "storage_bucket": "batrai-health.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525681473937:android:dcc32a9cf08b0ac35a8230",
+        "android_client_info": {
+          "package_name": "com.example.batraihealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk917rt5Si4am3K1rJDXFl8hDyYNvI9jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

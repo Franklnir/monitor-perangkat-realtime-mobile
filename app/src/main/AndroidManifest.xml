@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.batraihealth">
+
+    <!-- Permissions used by the application -->
+
+    <!-- Required for drawing over other apps (the overlay) -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- Required for running a foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- Required for foreground service type "specialUse" on Android 14 (API 34) and above -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Permissions for network state and internet access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Permissions for phone state (often includes device info, but be mindful of privacy) -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <!-- Location permissions (if your app uses location, otherwise remove) -->
+    <!-- Note: These are not directly used by the provided Java code for battery/CPU monitoring. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!-- Protected permission for detailed battery statistics.
+         This is usually only granted to system apps. For basic battery info
+         (like temperature, level, status), ACTION_BATTERY_CHANGED broadcast
+         is usually sufficient and doesn't require this permission.
+         Keep with caution or remove if not strictly necessary. -->
+    <uses-permission android:name="android.permission.BATTERY_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Storage permissions (only applicable for Android 9 / API 28 and below for direct file access) -->
+    <!-- For Android 10+ (API 29+), scoped storage rules apply. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Main activity declaration -->
+        <activity android:name=".home"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Service declaration for OverlayService -->
+        <!-- android:enabled="true" means the service can be instantiated by the system -->
+        <!-- android:exported="false" means this service is not accessible by other applications -->
+        <!-- android:foregroundServiceType="specialUse" is required for API 34+ when using a foreground service for non-standard purposes like system monitoring -->
+        <service android:name=".OverlayService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+    </application>
+</manifest>

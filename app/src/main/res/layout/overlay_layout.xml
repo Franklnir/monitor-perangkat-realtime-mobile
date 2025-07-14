@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linerr"
+    android:orientation="vertical"
+    android:background="#80000000"
+    android:padding="3dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <!-- Barisan Horizontal untuk Ikon Setelan, Tombol Hide Background, dan Tombol ondisplay -->
+    <LinearLayout
+        android:layout_width="137dp"
+        android:layout_height="16dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <!-- Ikon Setelan -->
+        <ImageView
+            android:id="@+id/settingsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="1dp"
+            android:src="@drawable/ic_setting" />
+
+        <!-- Tombol untuk menyembunyikan latar belakang -->
+        <Button
+            android:id="@+id/hideBackgroundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/hide" />
+
+        <!-- Tombol ondisplay -->
+        <Button
+            android:id="@+id/ondisplayButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="1dp"
+            android:text="Ondisplay"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Informasi Teks -->
+    <TextView
+        android:id="@+id/batteryCapacityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Battery Capacity: -- mAh"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/batteryUsageDuration1"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:text="Battery Usage Duration: 0 hrs 0 mins"
+        android:textSize="11sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textViewPowerUsage"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#e0e0e0"
+        android:text="Power Consumption: 0 mA"
+        android:textSize="11sp" />
+
+
+
+    <TextView
+        android:id="@+id/batteryTemperatureOverlay"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Battery Temp: 25.0°C"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/cpuTemperatureOverlay"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="CPU Temp: 50°C"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/refreshRateOverlay"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Refresh Rate: 60Hz"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/storageSpaceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Free Space: 0 GB"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/batteryVoltage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:text="Voltage: Unknown" />
+
+    <TextView
+        android:id="@+id/batteryCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:text="Current: Unknown" />
+
+    <!-- Pengaturan -->
+    <LinearLayout
+        android:id="@+id/settingsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp">
+
+        <!-- Tombol untuk Mengubah Bentuk -->
+        <Button
+            android:id="@+id/shapeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Shape"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center"
+            android:padding="4dp"
+            android:textSize="14sp" />
+
+        <!-- Checkbox Container -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/checkBoxContainer"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Checkbox untuk suhu baterai -->
+                <CheckBox
+                    android:id="@+id/checkBatteryTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan Suhu Baterai"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:id="@+id/checkBatteryHealth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show Battery Health"
+                    android:checked="true" />
+
+                <TextView
+                    android:id="@+id/batteryHealthPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Health: 85%"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/batteryStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Status: Good"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/chargingCycles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Charging Cycles: 250"
+                    android:visibility="gone" />
+
+                <!-- Checkbox untuk suhu CPU -->
+                <CheckBox
+                    android:id="@+id/checkCpuTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan Suhu CPU"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:id="@+id/checkPowerUsage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan komsumsi"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+
+                <!-- Checkbox untuk refresh rate -->
+                <CheckBox
+                    android:id="@+id/checkRefreshRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan Refresh Rate"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+                <CheckBox
+                    android:id="@+id/checkBatteryCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan kapasitas"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+
+                <!-- Checkbox untuk ruang penyimpanan -->
+                <CheckBox
+                    android:id="@+id/checkStorage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tampilkan Penyimpanan"
+                    android:textColor="#FFFFFF"
+                    android:checked="true" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
